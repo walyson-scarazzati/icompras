@@ -1,0 +1,4 @@
+.mvn/
+icompras-servicos/database/data/
+.idea/
+.DS_Store

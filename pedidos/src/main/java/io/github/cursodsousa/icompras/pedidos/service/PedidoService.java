@@ -15,7 +15,9 @@ public class PedidoService {
     private final PedidoValidator validator;
 
     public Pedido criarPedido(Pedido pedido){
-        return null;
+        repository.save(pedido);
+        itemPedidoRepository.saveAll(pedido.getItens());
+        return pedido;
     }
 
 }

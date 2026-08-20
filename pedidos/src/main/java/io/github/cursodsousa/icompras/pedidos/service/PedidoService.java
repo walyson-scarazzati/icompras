@@ -1,5 +1,6 @@
 package io.github.cursodsousa.icompras.pedidos.service;
 
+import io.github.cursodsousa.icompras.pedidos.model.Pedido;
 import io.github.cursodsousa.icompras.pedidos.repository.ItemPedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.repository.PedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.validator.PedidoValidator;
@@ -12,5 +13,9 @@ public class PedidoService {
     private final PedidoRepository repository;
     private final ItemPedidoRepository itemPedidoRepository;
     private final PedidoValidator validator;
+
+    public Pedido criarPedido(Pedido pedido){
+        return null;
+    }
 
 }

@@ -1,5 +1,7 @@
 package io.github.cursodsousa.icompras.pedidos.controller.dto;
 
 
-public record NovoPedidoDTO(Long codigoCliente) {
+import java.util.List;
+
+public record NovoPedidoDTO(Long codigoCliente, DadosPagamentoDTO dadosPagamento,List<ItemPedidoDTO> itens) {
 }

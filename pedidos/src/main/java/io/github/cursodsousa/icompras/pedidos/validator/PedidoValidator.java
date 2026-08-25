@@ -1,5 +1,6 @@
 package io.github.cursodsousa.icompras.pedidos.validator;
 
+import io.github.cursodsousa.icompras.pedidos.client.ClientesClient;
 import io.github.cursodsousa.icompras.pedidos.client.ProdutosClient;
 import io.github.cursodsousa.icompras.pedidos.model.Pedido;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class PedidoValidator {
 
     private final ProdutosClient produtosClient;
+    private final ClientesClient clientesClient;
 
     public void validar(Pedido pedido){
 

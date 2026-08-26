@@ -7,6 +7,7 @@ import io.github.cursodsousa.icompras.pedidos.client.representation.ClienteRepre
 import io.github.cursodsousa.icompras.pedidos.client.representation.ProdutoRepresentation;
 import io.github.cursodsousa.icompras.pedidos.model.ItemPedido;
 import io.github.cursodsousa.icompras.pedidos.model.Pedido;
+import io.github.cursodsousa.icompras.pedidos.model.exception.ValidationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,8 @@ public class PedidoValidator {
             ClienteRepresentation cliente = response.getBody();
             log.info("Cliente de codigo {} encontrado: {}", cliente.codigo(), cliente.nome());
         } catch (FeignException.NotFound ex){
-        	log.error("Cliente não encontrado");
+        	var message = String.format("Cliente de codigo %d não encontrado.", codigoCliente);
+        	throw new ValidationException("codigoCliente", message);
         }
     }
 
@@ -42,7 +44,8 @@ public class PedidoValidator {
             ProdutoRepresentation produto = response.getBody();
             log.info("Produto de código {} encontrado: {}", produto.codigo(), produto.nome());
         } catch (FeignException.NotFound e){
-        	log.error("Produto não encontrado");
+        	var message = String.format("Produto de codigo %d não encontrado.", item.getCodigoProduto());
+        	throw new ValidationException("codigoProduto", message);
         }
     }
 }

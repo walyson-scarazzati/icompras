@@ -5,6 +5,7 @@ import io.github.cursodsousa.icompras.pedidos.model.DadosPagamento;
 import io.github.cursodsousa.icompras.pedidos.model.Pedido;
 import io.github.cursodsousa.icompras.pedidos.model.enums.StatusPedido;
 import io.github.cursodsousa.icompras.pedidos.model.enums.TipoPagamento;
+import io.github.cursodsousa.icompras.pedidos.model.exception.ItemNaoEncontradoException;
 import io.github.cursodsousa.icompras.pedidos.repository.ItemPedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.repository.PedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.validator.PedidoValidator;
@@ -61,7 +62,7 @@ public class PedidoService {
     public void adicionarNovoPagamento(Long codigoPedido, String dadosCartao, TipoPagamento tipo){
         var pedidoEncontrado =repository.findById(codigoPedido);
         if(pedidoEncontrado.isEmpty()){
-            return;
+            throw new ItemNaoEncontradoException("Pedido não encontrado");
         }
         var pedido = pedidoEncontrado.get();
         DadosPagamento dadosPagamento = new DadosPagamento();

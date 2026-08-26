@@ -1,5 +1,6 @@
 package io.github.cursodsousa.icompras.pedidos.controller;
 
+import io.github.cursodsousa.icompras.pedidos.controller.dto.AdicaoNovoPagamentoDTO;
 import io.github.cursodsousa.icompras.pedidos.controller.dto.NovoPedidoDTO;
 import io.github.cursodsousa.icompras.pedidos.controller.mappers.PedidoMapper;
 import io.github.cursodsousa.icompras.pedidos.model.ErroResposta;
@@ -29,7 +30,11 @@ public class PedidoController {
     		var erro = new ErroResposta("Erro validação", ex.getField(), ex.getMessage());
     		return ResponseEntity.badRequest().body(erro);
     	}
-
-
     }
+    @PostMapping("pagamentos")
+    public ResponseEntity<Object> adicionarNovoPagamento(@RequestBody AdicaoNovoPagamentoDTO dto) {
+        service.adicionarNovoPagamento(dto.codigoPedido(), dto.dados(), dto.tipoPagamento());
+        return ResponseEntity.noContent().build();
+    }
+    
 }

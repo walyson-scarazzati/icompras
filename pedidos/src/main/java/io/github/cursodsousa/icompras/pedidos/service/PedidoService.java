@@ -98,7 +98,7 @@ public class PedidoService {
     }
     
     private void carregarDadosCliente(Pedido pedido){
-        Long codigoCliente = pedido.getCodigo();
+        Long codigoCliente = pedido.getCodigoCliente();
         ResponseEntity<ClienteRepresentation> response = apiClientes.obterDados(codigoCliente);
         pedido.setDadosCliente(response.getBody());
     }

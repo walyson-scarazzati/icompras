@@ -1,4 +1,4 @@
-package io.github.cursodsousa.icompras.pedidos.publisher.representation;
+package io.github.cursodsousa.icompras.pedidos.publisher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

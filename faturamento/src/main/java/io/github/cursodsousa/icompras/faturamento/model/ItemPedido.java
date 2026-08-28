@@ -2,10 +2,6 @@ package io.github.cursodsousa.icompras.faturamento.model;
 
 import java.math.BigDecimal;
 
-public record ItemPedido(Long codigo, String descricao, BigDecimal valorunitario, Integer quantidade) {
-
-    public BigDecimal getTotal(){
-        return BigDecimal.valueOf(this.quantidade).multiply(this.valorunitario);
-    }
+public record ItemPedido(Long codigo, String descricao, BigDecimal valorunitario, Integer quantidade, BigDecimal total) {
 
 }

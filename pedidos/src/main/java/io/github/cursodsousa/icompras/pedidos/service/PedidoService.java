@@ -11,7 +11,7 @@ import io.github.cursodsousa.icompras.pedidos.model.Pedido;
 import io.github.cursodsousa.icompras.pedidos.model.enums.StatusPedido;
 import io.github.cursodsousa.icompras.pedidos.model.enums.TipoPagamento;
 import io.github.cursodsousa.icompras.pedidos.model.exception.ItemNaoEncontradoException;
-import io.github.cursodsousa.icompras.pedidos.publisher.representation.PagamentoPublisher;
+import io.github.cursodsousa.icompras.pedidos.publisher.PagamentoPublisher;
 import io.github.cursodsousa.icompras.pedidos.repository.ItemPedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.repository.PedidoRepository;
 import io.github.cursodsousa.icompras.pedidos.validator.PedidoValidator;

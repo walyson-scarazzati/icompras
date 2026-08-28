@@ -1,6 +1,8 @@
 package io.github.cursodsousa.icompras.pedidos.publisher;
 
 import io.github.cursodsousa.icompras.pedidos.model.Pedido;
+import io.github.cursodsousa.icompras.pedidos.publisher.representation.DetalhePedidoRepresentation;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

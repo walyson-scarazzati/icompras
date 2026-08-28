@@ -6,7 +6,7 @@ import io.github.cursodsousa.icompras.pedidos.controller.mappers.PedidoMapper;
 import io.github.cursodsousa.icompras.pedidos.model.ErroResposta;
 import io.github.cursodsousa.icompras.pedidos.model.exception.ItemNaoEncontradoException;
 import io.github.cursodsousa.icompras.pedidos.model.exception.ValidationException;
-import io.github.cursodsousa.icompras.pedidos.publisher.representation.DetalhePedidoMapper;
+import io.github.cursodsousa.icompras.pedidos.publisher.DetalhePedidoMapper;
 import io.github.cursodsousa.icompras.pedidos.publisher.representation.DetalhePedidoRepresentation;
 import io.github.cursodsousa.icompras.pedidos.service.PedidoService;
 import lombok.RequiredArgsConstructor;

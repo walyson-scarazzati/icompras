@@ -1,10 +1,10 @@
-package io.github.cursodsousa.icompras.pedidos.subscriber;
+package io.github.cursodsousa.icompras.faturamento.subscriber;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.cursodsousa.icompras.pedidos.controller.mappers.PedidoMapper;
-import io.github.cursodsousa.icompras.pedidos.model.Pedido;
-import io.github.cursodsousa.icompras.pedidos.publisher.representation.DetalhePedidoRepresentation;
-import io.github.cursodsousa.icompras.pedidos.service.GeradorNotaFiscalService;
+import io.github.cursodsousa.icompras.faturamento.mapper.PedidoMapper;
+import io.github.cursodsousa.icompras.faturamento.model.Pedido;
+import io.github.cursodsousa.icompras.faturamento.service.GeradorNotaFiscalService;
+import io.github.cursodsousa.icompras.faturamento.subscriber.representation.DetalhePedidoRepresentation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

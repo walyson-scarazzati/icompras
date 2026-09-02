@@ -8,12 +8,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
-import org.springframework.kafka.core.ConsumerFactory;
-import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.core.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,10 @@ import java.util.Map;
 @Configuration
 @EnableKafka
 public class KafkaConfig {
+
+    @Value("${spring.kafka.boostrap-servers}")
+    private String kafkaServerUrl;
+
     public ConsumerFactory<String, String> consumerFactory(){
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -43,6 +47,20 @@ public class KafkaConfig {
         mapper.configure(DeserializationFeature.FAIL_ON_UNEXPECTED_VIEW_PROPERTIES,false);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         return mapper;
+    }
+
+    @Bean
+    public ProducerFactory<String, String> producerFactory(){
+        Map<String, Object> props = new HashMap<>();
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServerUrl);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(props);
+    }
+
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory){
+        return new KafkaTemplate<>(producerFactory);
     }
 
 }

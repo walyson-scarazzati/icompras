@@ -20,5 +20,9 @@ public class Produto {
 
     private boolean ativo;
 
+    @PrePersist
+    public void prePersist(){
+        setAtivo(true);
+    }
 
 }

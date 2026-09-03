@@ -27,4 +27,8 @@ public class Cliente {
     private String telefone;
     private boolean ativo;
 
+    @PrePersist
+    public void prePersist(){
+        setAtivo(true);
+    }
 }

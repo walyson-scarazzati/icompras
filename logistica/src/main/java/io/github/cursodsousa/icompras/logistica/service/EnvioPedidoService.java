@@ -2,7 +2,7 @@ package io.github.cursodsousa.icompras.logistica.service;
 
 import io.github.cursodsousa.icompras.logistica.model.AtualizacaoEnvioPedido;
 import io.github.cursodsousa.icompras.logistica.model.StatusPedido;
-import io.github.cursodsousa.icompras.logistica.publisher.EnviPedidoPublisher;
+import io.github.cursodsousa.icompras.logistica.publisher.EnvioPedidoPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Random;
 @Service
 @RequiredArgsConstructor
 public class EnvioPedidoService {
-    private  final EnviPedidoPublisher publisher;
+    private  final EnvioPedidoPublisher publisher;
 
     public void enviar(Long codigoPedido, String urlNotaFiscal){
         var codigoRastreio = gerarCodigoRastreio();

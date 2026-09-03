@@ -24,5 +24,15 @@ public class ProdutoController {
                 .map(ResponseEntity::ok)
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping("{codigo}")
+    public ResponseEntity<Produto> deletar(@PathVariable("codigo") Long codigo){
+        return service.obterPorCodigo(codigo)
+                .map(produto -> {
+                    service.deletar(produto);
+                    return ResponseEntity.noContent().<Produto>build();
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
 

@@ -1,0 +1,348 @@
+{
+  "info": {
+    "_postman_id": "72db1b81-16f5-487b-b6be-7ab06d3b0fa9",
+    "name": "ICompras",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19833026"
+  },
+  "item": [
+    {
+      "name": "produtos",
+      "item": [
+        {
+          "name": "cadastrar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Placa de video yz\",\n    \"valorUnitario\": 2000\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/produtos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "produtos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "obter dados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8081/produtos/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "produtos",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deletar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8081/produtos/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "produtos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "clientes",
+      "item": [
+        {
+          "name": "cadastrar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\n{\n    \"nome\": \"Luiz Alberto2\",\n    \"cpf\": \"987852555\",\n    \"logradouro\": \"Rua dos navegantes\",\n    \"numero\": \"120\",\n    \"bairro\": \"Floresta\",\n    \"email\": \"luiz@email.com\",\n    \"telefone\": \"987798789798\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8082/clientes",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "obter dados",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8082/clientes/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "clientes",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deletar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8082/clientes/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "clientes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "pedidos",
+      "item": [
+        {
+          "name": "criar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigoCliente\": 1,\n  \"dadosPagamento\": {\n    \"tipoPagamento\": \"CREDIT\",\n    \"dados\": \"54645654\"\n  },\n  \"itens\": [\n    {\n      \"codigoProduto\": 2,\n      \"quantidade\": 1,\n      \"valorUnitario\": 2000\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/pedidos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "novo pagamento",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"codigoPedido\": 50,\n    \"tipoPagamento\": \"DEBIT\",\n    \"dados\": \"493254\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/pedidos/pagamentos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "pedidos",
+                "pagamentos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "callback-pagamentos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "apiKey",
+                "value": "123",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"codigo\": 15,\n    \"chavePagamento\": \"cd5bc50e-1e15-4d7a-81c5-daa0e4ab0b82\",\n    \"status\": true,\n    \"observacoes\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/pedidos/callback-pagamentos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "pedidos",
+                "callback-pagamentos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "detalhes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/pedidos/:id",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "pedidos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "15"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "bucket",
+      "item": [
+        {
+          "name": "upload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "aeb599cf-012d-4ad5-8978-208ed1e74071",
+                  "src": "/Users/walyson/arquivos/filme.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:8083/bucket",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "bucket"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-url",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8083/bucket?filename=notafiscal_pedido_3.pdf",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "bucket"
+              ],
+              "query": [
+                {
+                  "key": "filename",
+                  "value": "notafiscal_pedido_3.pdf"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

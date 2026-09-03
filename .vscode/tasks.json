@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pedidos: clean run",
+            "type": "shell",
+            "command": "mvn clean spring-boot:run",
+            "options": {
+                "cwd": "${workspaceFolder}/pedidos"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "produtos: clean run",
+            "type": "shell",
+            "command": "mvn clean spring-boot:run",
+            "options": {
+                "cwd": "${workspaceFolder}/produtos"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "clientes: clean run",
+            "type": "shell",
+            "command": "mvn clean spring-boot:run",
+            "options": {
+                "cwd": "${workspaceFolder}/clientes"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "LogisticaApplication",
+            "request": "launch",
+            "mainClass": "io.github.cursodsousa.icompras.logistica.LogisticaApplication",
+            "projectName": "logistica"
+        },
+        {
+            "type": "java",
+            "name": "FaturamentoApplication",
+            "request": "launch",
+            "mainClass": "io.github.cursodsousa.icompras.faturamento.FaturamentoApplication",
+            "projectName": "faturamento"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClientesApplication<clientes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.github.cursodsousa.icompras.clientes.ClientesApplication",
+            "projectName": "clientes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProdutosApplication<produtos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.github.cursodsousa.icompras.produtos.ProdutosApplication",
+            "projectName": "produtos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServicosApplication<servicos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.github.cursodsousa.icompras.servicos.ServicosApplication",
+            "projectName": "servicos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PedidosApplication<pedidos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.github.cursodsousa.icompras.pedidos.PedidosApplication",
+            "projectName": "pedidos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
